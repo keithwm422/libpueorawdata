@@ -110,12 +110,12 @@ int pueo_dump_sensors_telem(FILE *f, const pueo_sensors_telem_t *t)
     switch(pueo_sensor_id_get_compat_type_tag(t->sensors[i].sensor_id, t->sensor_id_magic))
     {
       case 'F':
-        DUMPKEYVAL("value", "%f", (double) t->sensors[i].val.fval); break;
+        DUMPKEYVAL("value f", "%f", (double) t->sensors[i].val.fval); break;
       case 'U':
-        DUMPKEYVAL("value", "%hu", t->sensors[i].val.uval); break;
+        DUMPKEYVAL("value u", "%hu", t->sensors[i].val.uval); break;
       case 'I':
       default: 
-        DUMPKEYVAL("value", "%hd", t->sensors[i].val.ival); break;
+        DUMPKEYVAL("value i with unit", "%hd", pueo_sensor_id_get_compat_type_tag(t->sensors[i].sensor_id, t->sensor_id_magic)); break;
     }
     DUMPEND();
   }

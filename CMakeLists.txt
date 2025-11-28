@@ -72,6 +72,9 @@ endif()
 add_executable(write-wf test/write-wf.c)
 target_link_libraries(write-wf pueorawdata)
 
+add_executable(write-sensor test/write-sensor.c)
+target_link_libraries(write-sensor pueorawdata)
+
 add_executable(read-wf test/read-wf.c)
 target_link_libraries(read-wf pueorawdata)
 
